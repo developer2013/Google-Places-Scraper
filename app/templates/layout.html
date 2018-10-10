@@ -4,8 +4,8 @@
     <meta charset="utf-8">
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Google Maps Scraper</title>
-    <!-- <link rel="shortcut icon" href="images/tab_icon_v2.png"> -->
-    <link rel="stylesheet" href="styles.css">
+    <link rel="shortcut icon" href="{{ url_for('static', filename='images/favicon.png') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
     <script
         src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
@@ -16,12 +16,10 @@
 
 <body>
     <nav>
-        <h1 id="title">Online Geocoder</h1>
+        <h1 id="title">Google Maps Scraper</h1>
     </nav>
     
     <div id="main">
-
-        <div id="service-helper"></div>
         <div id="top">
             <div id="inputs">
                 <form id='api-form'>
@@ -38,8 +36,6 @@
                 <h3 class="header" id="complete">0 / 0 Complete</h2>
             </div>
         </div>
-
-        <div id="viewDiv"></div>
 
         <div id="outputs">
             <h2 class="header">Results</h2><hr class="pg-titl-bdr-btm">
