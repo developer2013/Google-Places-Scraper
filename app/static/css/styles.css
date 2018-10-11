@@ -67,13 +67,6 @@ nav h1 {
   margin-top: 3px;
 }
 
-#api-in {
-  width: 40%;
-  text-align: center;
-  padding: 7px;
-  margin-top: 3px;
-}
-
 #api-form {
   margin-bottom: 10px;
 }
@@ -81,6 +74,10 @@ nav h1 {
 .text-in {
   border: #F05D5E 2px solid;
   border-radius: 10px;
+  width: 40%;
+  text-align: center;
+  padding: 7px;
+  margin-top: 3px;
 }
 
 .text-out {
@@ -107,7 +104,7 @@ nav h1 {
 }
 
 #submit-button {
-  margin-top: 2px;
+  margin-top: 15px;
   background-color: #F05D5E;
   border: 2px solid #F05D5E;
   color: #272932;

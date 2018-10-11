@@ -18,28 +18,42 @@
     <nav>
         <h1 id="title">Google Maps Scraper</h1>
     </nav>
-    
+
+
+    <!-- 
+    API key 
+    Search Term
+    Google Place Type (Optional)
+    Radius Miles (convert by 1.609 to get back to KM)
+    Coordinates Bounding (-77.4896588549,39.0099861995,-73.7762799487,40.7965331276)
+     -->
+
+
     <div id="main">
         <div id="top">
             <div id="inputs">
                 <form id='api-form'>
+
                     <h2 class="header">Google Places Api Key</h2><hr class="pg-titl-bdr-btm">
-                    <input type="text" class="field text-in" id="api-in" value="AIzaSyAf-6tsTGCPib1xkDgVkTcZp_G6uSMHBCg"></input>
-                    <h2 class="header">Addresses to Geocode</h2><hr class="pg-titl-bdr-btm">
-                    <textarea class="textarea text-in" id="address-in"></textarea>
-                    <div id="showOnMapCheck">
-                        <input type="checkbox" id="showOnMapBox">
-                        <label for="showOnMap" id="showOnMapLabel">Show points on Map</label>
-                    </div>
+                    <input type="text" class="text-in" id="api-in" value="AIzaSyBnJu6878Ez0gsF4rl6Y0y1r96E1UlhKMQ"></input>
+
+                    <h2 class="header">Search Term</h2><hr class="pg-titl-bdr-btm">
+                    <input type="text" class="text-in" id="search-in" value="AIzaSyBnJu6878Ez0gsF4rl6Y0y1r96E1UlhKMQ"></input>
+
+                    <h2 class="header">Google Place Type (Optional)</h2><hr class="pg-titl-bdr-btm">
+                    <input type="text" class="text-in" id="type-in"></input>
+
+                    <h2 class="header">Search Ring Radius (Miles)</h2><hr class="pg-titl-bdr-btm">
+                    <input type="text" class="text-in" id="radius-in"></input>
+
+                    <h2 class="header">Coordinates Bounding Box</h2><hr class="pg-titl-bdr-btm">
+                    <input type="text" class="text-in" id="coord-in"></input>
+
                 </form>
+
                 <button id="submit-button">Go!</button>
                 <h3 class="header" id="complete">0 / 0 Complete</h2>
             </div>
-        </div>
-
-        <div id="outputs">
-            <h2 class="header">Results</h2><hr class="pg-titl-bdr-btm">
-            <textarea class="textarea text-out" id="latlon-out"></textarea>
         </div>
     </div>
 </body>
