@@ -34,21 +34,23 @@
             <div id="inputs">
                 <form id='api-form'>
 
-                    <h2 class="header">Google Places Api Key</h2><hr class="pg-titl-bdr-btm">
+                    <h2 class="header top-header">Google Places Api Key</h2><hr class="pg-titl-bdr-btm">
                     <input type="text" class="text-in" id="api-in" value="AIzaSyBnJu6878Ez0gsF4rl6Y0y1r96E1UlhKMQ"></input>
 
                     <h2 class="header">Search Term</h2><hr class="pg-titl-bdr-btm">
-                    <input type="text" class="text-in" id="search-in" value="AIzaSyBnJu6878Ez0gsF4rl6Y0y1r96E1UlhKMQ"></input>
+                    <input type="text" class="text-in" id="search-in"></input>
 
                     <h2 class="header">Google Place Type (Optional)</h2><hr class="pg-titl-bdr-btm">
+                    <h4 class="subtext">Here's a <a href="https://developers.google.com/places/supported_types" target="_blank">list</a> of possible types</h4>
                     <input type="text" class="text-in" id="type-in"></input>
 
                     <h2 class="header">Search Ring Radius (Miles)</h2><hr class="pg-titl-bdr-btm">
                     <input type="text" class="text-in" id="radius-in"></input>
 
                     <h2 class="header">Coordinates Bounding Box</h2><hr class="pg-titl-bdr-btm">
+                    <h4 class="subtext">Use this format: [southwest latitude, southwest longitude, northeast latitude, northeast longitude]
+                        <br>Here's a helpful <a href="http://boundingbox.klokantech.com/" target="_blank">link</a> for generating this. Use the CSV RAW format</h4>
                     <input type="text" class="text-in" id="coord-in"></input>
-
                 </form>
 
                 <button id="submit-button">Go!</button>

@@ -99,8 +99,13 @@ nav h1 {
 }
 
 .header {
+  margin-top: 50px;
   margin-bottom: 2px;
   font-family: sans-serif;
+}
+
+.top-header {
+  margin-top: 25px;
 }
 
 #submit-button {
@@ -148,4 +153,8 @@ nav h1 {
 #showOnMapLabel {
   font-family: 'Lato', sans-serif;
   font-weight: bold;
+}
+
+.subtext {
+  margin: 0;
 }
