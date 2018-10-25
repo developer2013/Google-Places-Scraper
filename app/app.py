@@ -1,7 +1,7 @@
 from flask import (Flask, render_template, request)
 app = Flask(__name__, template_folder='./templates')
 
-import math
+import math, sys
 
 API_KEY = ""
 COMPANY_SEARCH = ""
@@ -20,7 +20,6 @@ def index():
 
 @app.route('/map')
 def create_map():
-    htmltext = ''
     # api, company, radius, swlat, swlng, nelat, nelng, types
     API_KEY = request.args.get('api')
     COMPANY_SEARCH = request.args.get('company')
@@ -38,6 +37,7 @@ def create_map():
         """
         def __init__(self):
             self.coordset = []
+            self.htmltext = ''
     
         def createcoordinates(self,
                             southwest_lat,
@@ -71,12 +71,11 @@ def create_map():
                     lon += 2 * (RADIUS_KM / parallel_radius) * math.cos(math.radians(30))
     
 
-        def htmlmaplog(self,
-                    map_save_path):
+        def htmlmaplog(self):
             """
             Outputs a HTML map
             """
-            htmltext = """
+            self.htmltext = """
             <!DOCTYPE html >
             <style type="text/css">
                         html, body {
@@ -97,20 +96,20 @@ def create_map():
             for coord in self.coordset:
                 rowcord = '<marker name = "' + COMPANY_SEARCH + '" lat = "' + \
                         '%.5f' % coord[0] + '" lng = "' + '%.5f' % coord[1] + '"/>\n'
-                htmltext += rowcord
+                self.htmltext += rowcord
             # Bottom
-            htmltext += """
+            self.htmltext += """
             </markers>
             </xml>
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=geometry"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=geometry?key=AIzaSyDpa9FUmUBcVQwg37VRDoOs3W3JVUjaD00"></script>
             <script type="text/javascript">
             var XML = document.getElementById("myxml");
             if(XML.documentElement == null)
             XML.documentElement = XML.firstChild;
             var MARKERS = XML.getElementsByTagName("marker");
             """
-            htmltext += "var RADIUS_KM = " + str(RADIUS_KM) + ";"
-            htmltext += """
+            self.htmltext += "var RADIUS_KM = " + str(RADIUS_KM) + ";"
+            self.htmltext += """
             var map;
             var geocoder = new google.maps.Geocoder();
             var counter = 0
@@ -161,13 +160,15 @@ def create_map():
             </body>
             </html>
             """
-
-            return htmltext
+            print(type(self.htmltext), file=sys.stderr) 
+            # return self.html
 
     coord = coordinates_box()
-    coord.createcoordinates(southwest_lat, southwest_lng, northeast_lat, northeast_lng)
+    coord.createcoordinates(southwest_lng, southwest_lat, northeast_lng, northeast_lat)
+    coord.htmlmaplog()
 
-    return htmltext
+    print(coord.htmltext, file=sys.stderr)
+    return coord.htmltext
 
 if __name__ == '__main__':
     app.run()

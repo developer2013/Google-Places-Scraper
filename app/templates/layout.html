@@ -35,7 +35,7 @@
                 <form id='api-form'>
 
                     <h2 class="header top-header">Google Places Api Key</h2><hr class="pg-titl-bdr-btm">
-                    <input type="text" class="text-in" id="api-in" value="AIzaSyBnJu6878Ez0gsF4rl6Y0y1r96E1UlhKMQ"></input>
+                    <input type="text" class="text-in" id="api-in" value="AIzaSyDpa9FUmUBcVQwg37VRDoOs3W3JVUjaD00"></input>
 
                     <h2 class="header">Search Term</h2><hr class="pg-titl-bdr-btm">
                     <input type="text" class="text-in" id="search-in" value="bar"></input>
@@ -53,14 +53,21 @@
                     <input type="text" class="text-in" id="coord-in" value="-75.1498901844,40.1613129009,-75.1134979725,40.1791522689"></input>
                 </form>
 
-                <button id="submit-button" onclick="ajax_follow()">Go!</button>
+                <button id="submit-button" onclick="ajax_follow()">Generate Map!</button>
                 <h3 class="header" id="complete">0 / 0 Complete</h3>
 
-                <h1 id="map-test">Map Test</h1>
+                <div id="iframe-container">
+                    <iframe id="map" ></iframe>
+                </div>
             </div>
         </div>
     </div>
     <script>
+        function resizeIframe(obj) {
+            obj.style.height = 0;
+            obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+        }
+
         function ajax_follow() {
             // api_key, company, radius, swlat, swlng, nelat, nelng, types=''
           const api = $('#api-in').val();
@@ -77,7 +84,11 @@
           
           $.ajax({url: "/map", data: {api, company, radius, swlat, swlng, nelat, nelng, types }, success: function(result){
               console.log('success');
-              $("#map-test").html(result);
+              $("#iframe-container").css({display: 'block'});
+              console.log(result);
+              $("#map").prop('srcdoc', result);
+            //   $('#map').prop('src', 'https://online-geocoder.github.io/');
+            //   resizeIframe(document.getElementById('#map')[0]);
             },
             error(err) { alert("Incorrect input") }
           });
