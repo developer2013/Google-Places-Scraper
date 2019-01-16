@@ -7,13 +7,26 @@ darkgrey: #272932
 tan: #D8A47F
 */
 
-html, body {
+/* * {
+  outline: 1px solid red;
+} */
+
+html {
     padding: 0;
     margin: 0;
     height: 100%;
     width: 100%;
     background-color: #368ABD;
     font-family: 'Lato', sans-serif;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+  background-color: #368ABD;
+  font-family: 'Lato', sans-serif;
 }
 
 #main {
@@ -160,8 +173,10 @@ nav h1 {
 }
 
 #iframe-container {
-  height: 300px;
+  height: 800px;
+  width: 100%;
   display: none;
+  overflow: visible;
 }
 
 #map {

@@ -85,13 +85,15 @@
           $.ajax({url: "/map", data: {api, company, radius, swlat, swlng, nelat, nelng, types }, success: function(result){
               console.log('success');
               $("#iframe-container").css({display: 'block'});
-              console.log(result);
+            //   console.log(result);
               $("#map").prop('srcdoc', result);
             //   $('#map').prop('src', 'https://online-geocoder.github.io/');
             //   resizeIframe(document.getElementById('#map')[0]);
             },
             error(err) { alert("Incorrect input") }
           });
+          
+          window.scrollTo(0, $("#map").offset().top);
         }
     </script>
 </body>

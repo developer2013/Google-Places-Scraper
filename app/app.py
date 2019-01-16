@@ -101,7 +101,7 @@ def create_map():
             self.htmltext += """
             </markers>
             </xml>
-            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?&sensor=false&libraries=geometry?key=AIzaSyDpa9FUmUBcVQwg37VRDoOs3W3JVUjaD00"></script>
+            <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAf-6tsTGCPib1xkDgVkTcZp_G6uSMHBCg&sensor=false&libraries=geometry"></script>
             <script type="text/javascript">
             var XML = document.getElementById("myxml");
             if(XML.documentElement == null)
@@ -119,7 +119,7 @@ def create_map():
                 var my_lng = -0.129064;
                 var mapOptions = {
                         center: new google.maps.LatLng(my_lat, my_lng),
-                        zoom: 12
+                        zoom: 11
                 };
                 map = new google.maps.Map(document.getElementById('map'),
                     mapOptions);
@@ -169,6 +169,7 @@ def create_map():
 
     print(coord.htmltext, file=sys.stderr)
     return coord.htmltext
+
 
 if __name__ == '__main__':
     app.run()
