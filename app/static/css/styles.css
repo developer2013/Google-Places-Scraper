@@ -135,6 +135,20 @@ nav h1 {
   font-family: 'Lato', sans-serif;
 }
 
+#start-button {
+  margin-top: 15px;
+  background-color: #368ABD;
+  border: 2px solid #368ABD;
+  color: #272932;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: bold;
+  border-radius: 5px;
+  font-family: 'Lato', sans-serif;
+}
+
 #submit-button:hover {
   background-color: #ea8181;
 }
